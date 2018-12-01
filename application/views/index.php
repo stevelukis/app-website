@@ -13,13 +13,13 @@
         <link href="https://fonts.googleapis.com/css?family=Ubuntu:300,300i,400,400i,500,500i,700,700i" rel="stylesheet">
 
 
-        <link rel="stylesheet" href="css/swiper.min.css">
-        <link rel="stylesheet" href="css/animate.css">
-        <link rel="stylesheet" href="css/iconfont.css">
-        <link rel="stylesheet" href="css/font-awesome.min.css">
-        <link rel="stylesheet" href="css/bootstrap.min.css">
-        <link rel="stylesheet" href="css/magnific-popup.css">
-        <link rel="stylesheet" href="css/bootsnav.css">
+        <link rel="stylesheet" href="./css/swiper.min.css">
+        <link rel="stylesheet" href="./css/animate.css">
+        <link rel="stylesheet" href="./css/iconfont.css">
+        <link rel="stylesheet" href="./css/font-awesome.min.css">
+        <link rel="stylesheet" href="./css/bootstrap.min.css">
+        <link rel="stylesheet" href="./css/magnific-popup.css">
+        <link rel="stylesheet" href="./css/bootsnav.css">
 
 
 

@@ -50,7 +50,7 @@
             <div class="container">
                 <div class="attr-nav">
                     <ul>
-                        <li><a href="https://quora.com/stevelukis">Our Quora</a></li>
+                        <li><a href="https://quora.com/steve-lukis">Our Quora</a></li>
                     </ul>
                 </div>
                 <div class="navbar-header">
@@ -62,6 +62,7 @@
                         <li class=""><a href="#features">Features</a></li>
                         <li class=""><a href="#reviews">Reviews</a></li>
                         <li class="" id="login_li"><a href="login.html" id="li_child">Login</a></li>
+                        <li class="" id="login_li"><a href="signup" id="li_child">Register</a></li>
                     </ul>
                 </div>
             </div>
@@ -246,16 +247,8 @@
                             <div class="col-md-6">
                                 <div class="reviews_item m-top-40">
                                     <div class="reviews_item_icon pull-left">“</div>
-                                    <h3>Mantap - mantap.</h3>
-                                    <h5>Kevin Chandra</h5>
-                                    <div class="reviews_item_icon1 pull-right text-right">“</div>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="reviews_item m-top-40">
-                                    <div class="reviews_item_icon pull-left">“</div>
                                     <h3>Review bagaimana yang kau mau?</h3>
-                                    <h5>Andi Wijaya</h5>
+                                    <h5>Kevin Chandra</h5>
                                     <div class="reviews_item_icon1 pull-right text-right">“</div>
                                 </div>
                             </div>

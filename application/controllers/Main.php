@@ -28,6 +28,10 @@ class Main extends CI_Controller {
             $this->load->view('signup');
         } else {
             $this->Main_model->add_user();
+
+            $data['isLogin'] = "1";
+
+            $this->load->view('index', $data);
         }
     }
 }

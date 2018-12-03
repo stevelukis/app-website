@@ -3,38 +3,38 @@
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
-    <head>
-        <meta charset="utf-8">
-        <title>Mi</title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+<head>
+    <meta charset="utf-8">
+    <title>Mi</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <!--Google Font link-->
-        <link href="https://fonts.googleapis.com/css?family=Ubuntu:300,300i,400,400i,500,500i,700,700i" rel="stylesheet">
-
-
-        <link rel="stylesheet" href="./css/swiper.min.css">
-        <link rel="stylesheet" href="./css/animate.css">
-        <link rel="stylesheet" href="./css/iconfont.css">
-        <link rel="stylesheet" href="./css/font-awesome.min.css">
-        <link rel="stylesheet" href="./css/bootstrap.min.css">
-        <link rel="stylesheet" href="./css/magnific-popup.css">
-        <link rel="stylesheet" href="./css/bootsnav.css">
+    <!--Google Font link-->
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu:300,300i,400,400i,500,500i,700,700i" rel="stylesheet">
 
 
+    <link rel="stylesheet" href="./css/swiper.min.css">
+    <link rel="stylesheet" href="./css/animate.css">
+    <link rel="stylesheet" href="./css/iconfont.css">
+    <link rel="stylesheet" href="./css/font-awesome.min.css">
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/magnific-popup.css">
+    <link rel="stylesheet" href="./css/bootsnav.css">
 
-        <!--For Plugins external css-->
-        <!--<link rel="stylesheet" href="assets/css/plugins.css" />-->
-        <!--Theme custom css -->
-        <link rel="stylesheet" href="css/style.css">
 
-        <!--Theme Responsive css-->
-        <link rel="stylesheet" href="css/responsive.css" />
 
-        <script src="vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
-    </head>
+    <!--For Plugins external css-->
+    <!--<link rel="stylesheet" href="assets/css/plugins.css" />-->
+    <!--Theme custom css -->
+    <link rel="stylesheet" href="css/style.css">
 
-    <body data-spy="scroll" data-target=".navbar-collapse"><div class="wrapper">
+    <!--Theme Responsive css-->
+    <link rel="stylesheet" href="css/responsive.css" />
+
+    <script src="vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
+</head>
+
+<body data-spy="scroll" data-target=".navbar-collapse"><div class="wrapper">
     <div id="loading" style="display: none;">
         <div id="loading-center">
             <div id="loading-center-absolute">
@@ -61,8 +61,9 @@
                         <li class=""><a href="#home">Home</a></li>
                         <li class=""><a href="#features">Features</a></li>
                         <li class=""><a href="#reviews">Reviews</a></li>
-                        <li class="" id="login_li"><a href="login.html" id="li_child">Login</a></li>
-                        <li class="" id="login_li"><a href="signup" id="li_child">Register</a></li>
+                        <li class="" id="login_li"><a href="login" id="li_child">Login</a></li>
+                        <li class="" id="reg_li"><a href="signup" id="li_child">Register</a></li>
+                        <li class="" id="logout_li" style="visibility: hidden"><a onclick="logout" href="/sf" id="li_child">Logout</a></li>
                     </ul>
                 </div>
             </div>
@@ -273,16 +274,29 @@
 
     <script type="text/javascript">
 
-        if (localStorage.getItem("sudahLogin")=== "1") {
-            var lout = document.getElementById("li_child");
-            lout.setAttribute("href", "index.html");
-            lout.textContent = "Logout";
-            lout.onclick = function () {
-                localStorage.setItem("sudahLogin", "0")
-            }
+        <?php
+        $output = "let isLogin = ";
+
+        if (isset($isLogin)) {
+            $output .= "'" . $isLogin . "'";
+        } else {
+            $output .= "0";
+        }
+        $output .= ';';
+        echo $output;
+        ?>
+
+        localStorage.setItem("isLogin", isLogin);
+
+        if (localStorage.getItem("isLogin") === "1") {
+            document.getElementById('login_li').style.visibility = 'hidden';
+            document.getElementById('reg_li').style.visibility = 'hidden';
+            document.getElementById('logout_li').style.visibility = 'visible';
         }
 
-
+        function logout() {
+            localStorage.setItem("isLogin", "0")
+        }
 
     </script>
 

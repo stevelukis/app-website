@@ -22,5 +22,15 @@ class Main_model extends CI_Model
         return $this->db->insert('user', $data);
     }
 
+    public function login() {
+        $data = array(
+            'username' => $this->input->post('username'),
+            'password' => $this->input->post('password')
+        );
+
+        //if data is found (result size is not 0)
+        return sizeof($this->db->get_where('user', $data)->result()) != 0;
+    }
+
 
 }

@@ -8,16 +8,37 @@ class Main extends CI_Controller {
         $this->load->model('Main_model');
     }
 
-
     function index()
     {
         $this->load->view('index');
     }
 
+    function login()
+    {
+        $this->load->helper('form');
+        $this->load->library('form_validation');
+
+        $this->form_validation->set_rules('username', 'Username', 'required');
+        $this->form_validation->set_rules('password', 'Password', 'required');
+
+        if ($this->form_validation->run() == FALSE) {
+            $this->load->view('login');
+        } else {
+            $success = $this->Main_model->login();
+
+            if ($success) {
+                $data['isLogin'] = "1";
+                $this->load->view('index', $data);
+            } else {
+                $this->load->view('login');
+            }
+        }
+
+    }
+
     function signup()
     {
         $this->load->helper('form');
-        $this->load->helper('url');
         $this->load->library('form_validation');
 
 

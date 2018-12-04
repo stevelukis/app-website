@@ -27,19 +27,18 @@
     <link rel="stylesheet" type="text/css" href="css/main.css">
     <!--===============================================================================================-->
 
-    <script>
-        var sudahLogin = localStorage.getItem("sudahLogin") === "1";
-
-        if (sudahLogin) {
-            window.location.replace("index.html")
-        }
-    </script>
-
 </head>
 <body>
 
 <div class="limiter">
     <div class="container-login100" style="background-image: url('images/bg-01.jpg');">
+
+        <?php echo validation_errors(); ?>
+
+        <?php
+            echo form_open('login');
+        ?>
+
         <div class="wrap-login100 p-l-110 p-r-110 p-t-62 p-b-33">
 
                 <div class="p-t-31 p-b-9">
@@ -47,8 +46,8 @@
 							Username
 						</span>
                 </div>
-                <div class="wrap-input100 validate-input" data-validate = "Username is required">
-                    <input class="input100" type="text" name="username" id="username"/>
+                <div class="wrap-input100 validate-input">
+                    <input class="input100" type="text" name="username"/>
                     <span class="focus-input100"></span>
                 </div>
 
@@ -57,33 +56,24 @@
 							Password
 						</span>
                 </div>
-                <div class="wrap-input100 validate-input" data-validate = "Password is required">
-                    <input class="input100" type="password" name="pass" id="password"/>
+                <div class="wrap-input100 validate-input">
+                    <input class="input100" type="password" name="password"/>
                     <span class="focus-input100"></span>
                 </div>
 
                 <div class="container-login100-form-btn m-t-17">
-                    <button class="login100-form-btn" onclick="login()">
-                        Sign In
-                    </button>
+                    <input class="login100-form-btn" value="Login" type="submit" style="cursor: pointer"/>
                 </div>
 
         </div>
+
+        </form>
     </div>
 </div>
 
-
 <script>
-    function login() {
-        var username = document.getElementById("username").value;
-        var password = document.getElementById("password").value;
-
-        if (username === "admin" && password === "admin") {
-            localStorage.setItem("sudahLogin", "1");
-            window.location.replace("index.html");
-        } else {
-            alert("Username atau password salah.")
-        }
+    function f() {
+        
     }
 </script>
 

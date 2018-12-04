@@ -19,7 +19,7 @@
     <span class="input"></span>
     <input type="text" name="username" placeholder="Username" autofocus autocomplete="off" required/>
     <span id="passwordMeter"></span>
-    <input type="password" name="password" id="password" placeholder="Password" title="Password min 8 characters. At least one UPPERCASE and one lowercase letter" required/>
+    <input type="password" name="password" id="password" placeholder="Password" required/>
 
     <button type="submit" value="Sign Up" title="Submit form" class="icon-arrow-right"><span>Sign up</span></button>
 </form>

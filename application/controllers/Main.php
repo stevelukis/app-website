@@ -37,6 +37,7 @@ class Main extends CI_Controller {
 
     function signup()
     {
+        $this->load->helper('url');
         $this->load->helper('form');
         $this->load->library('form_validation');
 
@@ -58,6 +59,22 @@ class Main extends CI_Controller {
         $params = $this->getPostedObject();
         $this->Main_model->delete_user($params['username']);
         $this->load->view('index');
+    }
+
+    function change_password() {
+        $this->load->helper('url');
+        $this->load->helper('form');
+        $this->load->library('form_validation');
+
+        $this->form_validation->set_rules('password', 'Password', 'required');
+
+        if ($this->form_validation->run() == FALSE) {
+            $this->load->view('change_password');
+        } else {
+            $this->Main_model->update_password();
+
+            $this->load->view('index');
+        }
     }
 
     private function getPostedObject()

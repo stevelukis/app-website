@@ -36,4 +36,11 @@ class Main_model extends CI_Model
         return $this->db->delete('user', array('username' => $username));
     }
 
+    public function update_password() {
+        $username = $this->input->post('username');
+        $password = $this->input->post('password');
+        $this->db->where('username', $username);
+        return $this->db->update('user', array('password' => $password));
+    }
+
 }

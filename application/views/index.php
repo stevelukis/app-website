@@ -61,7 +61,7 @@
                         <li class="" id="login_li"><a href="login" >Login</a></li>
                         <li class="" id="reg_li"><a href="signup">Register</a></li>
                         <li class="" id="delete_li" style="visibility: hidden"><a onclick="deleteAcc()" href="/sf">Delete my account</a></li>
-                        <li class="" id="cp_li" style="visibility: hidden"><a onclick="logout" href="/sf" >Change password</a></li>
+                        <li class="" id="cp_li" style="visibility: hidden"><a href="/sf/change_password" >Change password</a></li>
                         <li class="" id="logout_li" style="visibility: hidden"><a onclick="logout()" href="/sf">Logout</a></li>
                     </ul>
                 </div>

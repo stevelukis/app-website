@@ -27,8 +27,7 @@ class Main extends CI_Controller {
             $success = $this->Main_model->login();
 
             if ($success) {
-                $data['isLogin'] = "1";
-                $this->load->view('index', $data);
+                $this->load->view('index');
             } else {
                 $this->load->view('login');
             }
@@ -50,9 +49,19 @@ class Main extends CI_Controller {
         } else {
             $this->Main_model->add_user();
 
-            $data['isLogin'] = "1";
-
-            $this->load->view('index', $data);
+            $this->load->view('index');
         }
+    }
+
+    function delete()
+    {
+        $params = $this->getPostedObject();
+        $this->Main_model->delete_user($params['username']);
+        $this->load->view('index');
+    }
+
+    private function getPostedObject()
+    {
+        return json_decode($this->security->xss_clean($this->input->raw_input_stream), true);
     }
 }

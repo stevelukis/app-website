@@ -17,14 +17,19 @@
     <h1>Sign up</h1><br/>
 
     <span class="input"></span>
-    <input type="text" name="username" placeholder="Username" autofocus autocomplete="off" required/>
+    <input type="text" id="username" name="username" placeholder="Username" autofocus autocomplete="off" required/>
     <span id="passwordMeter"></span>
     <input type="password" name="password" id="password" placeholder="Password" required/>
 
-    <button type="submit" value="Sign Up" title="Submit form" class="icon-arrow-right"><span>Sign up</span></button>
+    <button onclick="f()" type="submit" value="Sign Up" title="Submit form" class="icon-arrow-right"><span>Sign up</span></button>
 </form>
 
-
+<script>
+    function f() {
+        localStorage.setItem('isLogin', 1);
+        localStorage.setItem('username', document.getElementById('usernameInput').value);
+    }
+</script>
 <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
 <script  src="<?= site_url('js/signup.js') ?>"></script>
 

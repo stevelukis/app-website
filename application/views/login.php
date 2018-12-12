@@ -47,7 +47,7 @@
 						</span>
                 </div>
                 <div class="wrap-input100 validate-input">
-                    <input class="input100" type="text" name="username"/>
+                    <input id="usernameInput" class="input100" type="text" name="username"/>
                     <span class="focus-input100"></span>
                 </div>
 
@@ -62,7 +62,7 @@
                 </div>
 
                 <div class="container-login100-form-btn m-t-17">
-                    <input class="login100-form-btn" value="Login" type="submit" style="cursor: pointer"/>
+                    <input onclick="f()" class="login100-form-btn" value="Login" type="submit" style="cursor: pointer"/>
                 </div>
 
         </div>
@@ -73,7 +73,8 @@
 
 <script>
     function f() {
-        
+        localStorage.setItem('isLogin', 1);
+        localStorage.setItem('username', document.getElementById('usernameInput').value);
     }
 </script>
 

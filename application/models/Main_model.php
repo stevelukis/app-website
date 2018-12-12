@@ -32,5 +32,8 @@ class Main_model extends CI_Model
         return sizeof($this->db->get_where('user', $data)->result()) != 0;
     }
 
+    public function delete_user($username) {
+        return $this->db->delete('user', array('username' => $username));
+    }
 
 }

@@ -58,12 +58,11 @@
                     <a class="navbar-brand" href="https://www.free-css.com/free-css-templates"><img src="images/logo.png" class="logo logo-display" alt="website template image"> <img src="images/footer-logo.png" class="logo logo-scrolled" alt="website template image"></a></div>
                 <div class="collapse navbar-collapse" id="navbar-menu">
                     <ul class="nav navbar-nav navbar-center">
-                        <li class=""><a href="#home">Home</a></li>
-                        <li class=""><a href="#features">Features</a></li>
-                        <li class=""><a href="#reviews">Reviews</a></li>
-                        <li class="" id="login_li"><a href="login" id="li_child">Login</a></li>
-                        <li class="" id="reg_li"><a href="signup" id="li_child">Register</a></li>
-                        <li class="" id="logout_li" style="visibility: hidden"><a onclick="logout" href="/sf" id="li_child">Logout</a></li>
+                        <li class="" id="login_li"><a href="login" >Login</a></li>
+                        <li class="" id="reg_li"><a href="signup">Register</a></li>
+                        <li class="" id="delete_li" style="visibility: hidden"><a onclick="deleteAcc()" href="/sf">Delete my account</a></li>
+                        <li class="" id="cp_li" style="visibility: hidden"><a onclick="logout" href="/sf" >Change password</a></li>
+                        <li class="" id="logout_li" style="visibility: hidden"><a onclick="logout()" href="/sf">Logout</a></li>
                     </ul>
                 </div>
             </div>
@@ -262,6 +261,32 @@
         <div class="scrollup" style="display: block;"><a href="javascript:void(0)"><i class="fa fa-chevron-up"></i></a></div>
 
     </div>
+    <script type="text/javascript">
+
+        if (localStorage.getItem("isLogin") === "1") {
+            document.getElementById('login_li').style.visibility = 'hidden';
+            document.getElementById('reg_li').style.visibility = 'hidden';
+            document.getElementById('delete_li').style.visibility = 'visible';
+            document.getElementById('cp_li').style.visibility = 'visible';
+            document.getElementById('logout_li').style.visibility = 'visible';
+        }
+
+        function logout() {
+            localStorage.setItem("isLogin", "0")
+        }
+
+        function deleteAcc() {
+            fetch('delete', {
+                method: 'post',
+                headers: {
+                    'Content-type': 'application/json'
+                },
+                body: JSON.stringify({username: localStorage.getItem('username')})
+            }).then().catch(err => console.log(err));
+            localStorage.setItem('isLogin', 0);
+        }
+
+    </script>
     <script src="assets/js/jquery-1.11.2.min.js"></script>
     <script src="assets/js/bootstrap.min.js"></script>
     <script src="js/jquery.magnific-popup.js"></script>
@@ -272,33 +297,7 @@
     <script src="js/plugins.js"></script>
     <script src="js/utama.js"></script>
 
-    <script type="text/javascript">
 
-        <?php
-        $output = "let isLogin = ";
-
-        if (isset($isLogin)) {
-            $output .= "'" . $isLogin . "'";
-        } else {
-            $output .= "0";
-        }
-        $output .= ';';
-        echo $output;
-        ?>
-
-        localStorage.setItem("isLogin", isLogin);
-
-        if (localStorage.getItem("isLogin") === "1") {
-            document.getElementById('login_li').style.visibility = 'hidden';
-            document.getElementById('reg_li').style.visibility = 'hidden';
-            document.getElementById('logout_li').style.visibility = 'visible';
-        }
-
-        function logout() {
-            localStorage.setItem("isLogin", "0")
-        }
-
-    </script>
 
 </div></body>
 </html>
